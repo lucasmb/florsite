@@ -1,0 +1,307 @@
+.main-nav {
+    background: $dark;
+    width: 100vh;
+    height: 45px;
+    position: fixed;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: rotate(-90deg) translateX(-100%);
+    transform: rotate(-90deg) translateX(-100%);
+    z-index: 102;
+
+    .logo {
+        font-size: 0;
+        color: transparent;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        width: 50px;
+        bottom: 0;
+
+        a {
+            background: url(../img/logo.png) no-repeat 0 0 transparent;
+            background-size: 100%;
+            display: block;
+            width: 35px;
+            height: 30px;
+            margin: 5px;
+            outline: none;
+        }
+    }
+
+    ul.nav {
+        margin: 0 auto;
+        height: 100%;
+        padding-right: 65px;
+
+        li {
+            margin-right: 20px;
+            float: right;
+            height: 100%;
+            line-height: 45px;
+
+            a {
+                font-family: $body;
+                color: $light;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                opacity: .8;
+                transition: 0.3s;
+                font-weight: 700;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+/* Overlay style */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 101;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: .3;
+    font-size: 0;
+    color: transparent;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.overlay .overlay-close:hover {
+    opacity: 1;
+}
+
+.overlay .overlay-close:before, 
+.overlay .overlay-close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: $light;
+}
+
+.overlay .overlay-close:before {
+    transform: rotate(45deg);
+}
+
+.overlay .overlay-close:after {
+    transform: rotate(-45deg);
+}
+
+/* Menu style */
+.overlay .nav-wrapper {
+    text-align: center;
+    margin: 0 25vw;
+}
+
+.overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+
+    img {
+        width: 30px;
+    }
+}
+
+.overlay ul li {
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    line-height: normal;
+    margin: 19.2px;
+    margin: 1.2rem;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+.overlay ul li.credits-link {
+    display: block;
+    margin: 5rem 0 0;
+    text-align: center;
+}
+
+.overlay ul li a {
+    color: $light;
+    font-family: $featured;
+    font-size: 2.2rem;
+    font-weight: 300;
+    display: block;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.overlay ul li a:hover, 
+.overlay ul li a:focus {
+    color: $light;
+    opacity: 1;
+}
+
+/* Effects */
+
+.sg-wrapper {
+    overflow-x: hidden;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+.sg-wrapper.overlay-open {
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+.sg-wrapper::after {
+    content: '';
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.sg-wrapper.overlay-open::after {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+.overlay-contentpush {
+    background: $dark;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+    transition: transform 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-contentpush.open {
+    visibility: visible;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@media screen and (max-height:30.5em) {
+    .overlay nav {
+        height: 70%;
+        font-size: 34px;
+    }
+
+    .overlay ul li {
+        min-height: 34px;
+    }
+}
+
+#fp-nav.fp-left {
+    left: 55px;
+}
+
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    background: #fff;
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 991px) {
+    .overlay {
+        .nav-wrapper {
+            text-align: left;
+            top: 0;
+            height: 100vh;
+            -webkit-transform: none;
+            transform: none;
+            overflow-y: auto;
+            margin: 0 5vw;
+            padding-bottom: 5rem;
+            overflow-x: hidden;
+        }
+
+        ul {
+            display: block;
+            padding: 10rem 0;
+
+
+            li.credits-link {
+                text-align: left;
+            }
+
+            li {
+                width: 100%;
+                text-align: left;
+                padding: 1rem;
+                margin: 0;
+
+                a {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+
+    .overlay-contentpush.open {
+        z-index: 103;
+    }
+
+    .main-nav {
+        -webkit-transform-origin: unset;
+        transform-origin: unset;
+        -webkit-transform: none;
+        transform: none;
+        width: 100%;
+
+        .logo {
+            left: 1rem;
+            right: unset;
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            width: 45px;
+        }
+
+        ul.nav {
+            padding-right: 0;
+        }
+    }
+}

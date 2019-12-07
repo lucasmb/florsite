@@ -1,0 +1,267 @@
+main {
+	position: relative;
+}
+
+.sg-section {
+    position: relative;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.sg-content {
+    color: $light;
+    position: relative;
+    margin: 10vh 10vw;
+    min-height: calc(100vh - 20vh);
+} 
+
+.sg-isologo-a,
+.sg-isologo-b {
+	background-attachment: unset;
+    background-size: 100%;
+    display: block;    
+}
+
+.sg-isologo-a {        
+    width: 39vh;
+    height: 36vh;
+    top: 32vh;
+    left: 19vw;
+}
+
+.sg-isologo-b {	
+    width: 37vh;
+    height: 65vh;
+    top: 17vh;
+    left: 19vw;
+}
+
+.iso-a {
+  -webkit-animation: smooth 50s infinite;
+  animation: smooth 50s infinite;
+  transition: 0.3s;
+}
+
+.iso-b {
+  -webkit-animation: smooth 40s infinite;
+  animation: smooth 40s infinite;
+  transition: 0.3s;
+} 
+
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    box-shadow: 2px 1px 0 0 rgba(0,0,0,.5);
+}
+
+
+@-webkit-keyframes smooth {
+	0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+		margin-left: 5px;
+		margin-top: 10px;
+	}
+
+	5%,
+	15%,
+	25%,
+	35%,
+	45%,
+	55%,
+	65%,
+	75%,
+	85%,
+	95% {
+		margin-left: -5px;
+		margin-top: -10px;
+	}
+}
+
+@keyframes smooth {
+    0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+		margin-left: 5px;
+		margin-top: 10px;
+	}
+
+	5%,
+	15%,
+	25%,
+	35%,
+	45%,
+	55%,
+	65%,
+	75%,
+	85%,
+	95% {
+		margin-left: -5px;
+		margin-top: -10px;
+	}
+}
+
+
+.sg-plain-content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+
+	.sg-plain-content-inner {
+		margin: 0 4rem;
+	}
+
+	h2 {
+		margin-bottom: 3rem;
+	}
+
+	h3 {
+		font-family: $featured;
+	    font-size: 3rem;
+	    text-shadow: 4px 4px 0 rgba(0,0,0,.9);
+	    line-height: 85%;
+	    margin: 2rem 0;
+	}
+
+	p {
+		line-height: 150%;
+		margin: .8rem 0;
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		opacity: 0.8;
+	}
+
+}
+
+
+.sg-plain-content-credits {
+	display: block;
+	justify-content: center;
+
+	.sg-plain-content-inner {
+		margin: 0 4rem;
+	}
+
+	h2 {
+		margin-bottom: 3rem;
+	}
+
+	h3 {
+		font-family: $featured;
+	    font-size: 3rem;
+	    text-shadow: 4px 4px 0 rgba(0,0,0,.9);
+	    line-height: 85%;
+	    margin: 2rem 0;
+	}
+
+	p {
+		line-height: 150%;
+		margin: .8rem 0;
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		opacity: 0.8;
+	}
+
+	.copyright {
+		position: absolute;
+	    left: 3rem;
+	    bottom: 5rem;
+	    right: 3rem;
+	    text-align: center;
+	    opacity: .5;
+	    text-transform: uppercase;
+	    letter-spacing: 1px;
+	    font-size: .8rem;
+	    line-height: 150%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+
+
+	.overflow-mobile {
+		max-height: 55vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	.sg-section {
+	    background-attachment: unset;
+	    background-position: right center;
+	}
+
+	.sg-content {
+		overflow: hidden;
+		padding: 8vh 0 15vh;
+		margin: 0;
+	}
+
+	.credits-section {
+		padding: 0 0 25vh;
+	}
+
+	.sg-isologo-a {
+		width: 24vh;
+	    height: 20vh;
+	    top: unset;
+	    left: 50%;
+	    bottom: 11vh;
+	    margin-left: -12vh;
+	}
+
+	.sg-isologo-b {
+		width: 24vh;
+	    height: 45vh;
+	    top: unset;
+	    left: 50%;
+	    bottom: 0vh;
+	    margin-left: -12vh;
+	}
+
+	#fp-nav.fp-left {
+	    left: 1rem;
+	}
+
+	.sg-plain-content {
+		-webkit-box-align: self-start;
+		-ms-flex-align: self-start;
+		-ms-grid-row-align: self-start;
+		align-items: self-start;
+
+		.copyright {
+    		bottom: 25vh;
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+	.sg-section {
+	    background-attachment: unset;
+	    background-position: right center;
+	}
+
+	.sg-isologo-a {
+		width: 24vh;
+	    height: 20vh;
+	    top: unset;
+	    left: 50%;
+	    bottom: 11vh;
+	    margin-left: -12vh;
+	}
+
+	.sg-isologo-b {
+		width: 24vh;
+	    height: 45vh;
+	    top: unset;
+	    left: 50%;
+	    bottom: 0vh;
+	    margin-left: -12vh;
+	}
+}

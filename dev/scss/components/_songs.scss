@@ -1,0 +1,163 @@
+.sg-song-title {
+	font-family: $featured;
+	font-size: 2.6rem;
+	text-transform: uppercase;
+	font-weight: 400;
+	margin: 0 1rem;
+	background: #191919;
+	display: inline-block;
+	padding: 0 1rem 0 0.5rem;
+
+	.icon {
+	    background: url(../img/loading.png) no-repeat center center transparent;
+	    background-size: 100%;
+	    display: inline-block;
+	    width: 35px;
+	    height: 40px;
+	    vertical-align: middle;
+	    line-height: normal;
+
+	    & + span {
+	    	display: inline-block;
+	    	vertical-align: middle;
+	    	line-height: normal;
+	    }
+	}
+}
+
+.sg-song-lyric {
+
+	span {
+		position: absolute;
+		display: block;
+		visibility: visible;
+		opacity: 1;
+		margin: 1.5rem 0 0 45px;
+		font-family: Economica,sans-serif;
+		font-size: 11rem;
+		font-weight: 700;
+		text-shadow: 10px 6px 0 rgba(0, 0, 0, 0.9);
+		-webkit-transition: visibility 0s,opacity 1s linear;
+		transition: visibility 0s,opacity 1s linear;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		line-height: 85%;
+	}
+}
+
+.song-center {
+	text-align: center;
+
+	.sg-song-lyric span {
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+}
+
+.plain-bg {
+	background: url(../img/trama-b.jpg) repeat center center transparent;
+}
+
+.dark-text {
+	h2,
+	p {
+		color: $dark;
+	}
+
+	.sg-song-title {
+		color: $light;
+	}
+
+	.sg-song-lyric span {
+		text-shadow: 10px 6px 0 rgba(255, 255, 255, 0.9);
+	}
+}
+
+@media screen and (min-width: 992px) {
+
+	.photo-right {
+		.sg-song-lyric {
+			span {
+				margin-right: 20vw;
+			    font-size: 7rem;
+			    line-height: 95%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1300px) {
+
+	.photo-right {
+		.sg-song-lyric {
+			span {
+				margin-right: 40vw;
+				font-size: 9rem;
+	    		line-height: 85%;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 991px) {
+	.sg-song-title {
+	    font-size: 2.1rem;
+	}
+
+	.sg-song-lyric {
+		span {
+		    text-shadow: 4px 5px 0 rgba(0, 0, 0, 0.9);
+		    font-size: 4rem;
+		    margin-left: 20vw;
+		    margin-right: 15vw;
+		}
+	}
+
+	.dark-text {
+		.sg-song-lyric {
+			span {
+				text-shadow: 2px 3px 0 #FFF;
+			}
+		}
+	}
+}
+
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+	.sg-song-title {
+	    font-size: 2.1rem;
+	}
+
+	.sg-song-lyric {
+		span {
+		    margin-left: 0;
+		    margin-right: 0;
+		}
+	}
+
+	.photo-right {
+		.sg-song-lyric span {
+			margin-right: 15vw;
+		}
+	}
+}
+
+/* Landscape */
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
+	.sg-song-lyric span {
+		font-size: 9rem;
+	}
+}

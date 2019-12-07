@@ -1,0 +1,24 @@
+// Responsive breakpoints
+$mobile-small: new-breakpoint(max-width 320px);
+$mobile-medium: new-breakpoint(max-width 360px);
+$mobile-large: new-breakpoint(max-width 480px);
+$mobile: new-breakpoint(max-width 768px);
+$tablet-landscape: new-breakpoint(max-width 1024px);
+
+$small-screen: new-breakpoint(max-width 992px);
+$netbook: new-breakpoint(max-height 750px);
+$desktop: new-breakpoint(min-width 768px);
+$desktop-small: new-breakpoint(max-width 1200px);
+$desktop-medium: new-breakpoint(max-width 1440px);
+$desktop-large: new-breakpoint(min-width 1650px);
+
+// globals
+@import "globals/reset";
+@import "globals/vars";
+@import "globals/base";
+@import "globals/glitch";
+
+// components
+@import "components/header";
+@import "components/sections";
+@import "components/songs";
