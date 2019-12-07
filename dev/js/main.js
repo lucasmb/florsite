@@ -101,11 +101,17 @@ $(window).on("load", function() {
 	var prevLyricNum;
 	var thisLyric;
 	var prevLyric;
+	var TStart;
+	var TEnd;
+
+	$('.js-song').on('touchstart', touchHandlerStart);
+	$('.js-song').on('touchend', touchHandlerEnd);
 
 	$('.js-song').on('scroll wheel', function (e) {
 
-
-	  if(parseInt(location.hash.replace('#', '').split('/')[0]) == 14 ){
+	handleMove(e);
+		/*
+  	  if(parseInt(location.hash.replace('#', '').split('/')[0]) == 14 ){
 	  	listenToWheel =true;
 	  	allowScroll();
 	  }
@@ -126,8 +132,61 @@ $(window).on("load", function() {
 	  }
 
 	  lastScrollTop = ts <= 0 ? 0 : ts; // For Mobile or negative scrolling
+		*/
 
 	});
+
+	function handleMove(e, direct){
+	  if(parseInt(location.hash.replace('#', '').split('/')[0]) == 14 ){
+	  	listenToWheel =true;
+	  	allowScroll();
+	  }
+
+	  //alert(direct);
+
+	  console.log('scroll event:' + ts);
+
+	  if(direct === undefined){
+	  		  var ts = window.pageYOffset || document.documentElement.scrollTop;
+	 		 var direction =  findScrollDirectionOtherBrowsers(e.originalEvent);
+	  }else{
+	  	direction = direct;
+	  }
+
+	  if (listenToWheel) {
+	    listenToWheel = false;
+	    checkEndSong(direction);
+	    setTimeout(function(){
+	      listenToWheel = true;
+	    }, 400);
+	  }
+
+	  //lastScrollTop = ts <= 0 ? 0 : ts; // For Mobile or negative scrolling
+	}
+
+	function touchHandlerStart(event) {
+				 TStart = parseInt(event.changedTouches[0].clientY);
+				    TEnd = 0;
+	};
+
+	function touchHandlerEnd (event) {
+			console.log('endTouchEvent');
+			var direct;
+			TEnd = parseInt(event.changedTouches[0].clientY);
+
+						console.log(TStart - TEnd)
+						console.log(TEnd - TStart)
+
+
+			if (TEnd - TStart > 100 || TStart - TEnd > 100) {
+				if (TEnd > TStart) {
+						direct = -1;console.log('atras')
+				} else {
+						direct = 1;console.log('adelante')
+				}
+				handleMove(event, direct)//_self.changeCurrentPosition(_self.defaults.currentPosition);
+			}			
+	};
 
 
 	function checkEndSong(direction) {
@@ -195,8 +254,9 @@ $(window).on("load", function() {
 	}
 
 function songChanged(nextSong) {
-	alert('SONGCHANGED: '+currentSongNum);
-		alert('NEXT: '+nextSong);
+	console.log(' -- SONGCHANGED -- ');
+	console.log('Current: '+currentSongNum);
+	console.log('NEXT: '+nextSong);
 
 
 	if(nextSong<0) 
@@ -246,10 +306,10 @@ function songChanged(nextSong) {
 })();
 
 function allowScroll() {
-	alert('cambio')
+	console.log('AllowScroll - songchanged')
 	var el = document.getElementById('blocked-scroll');
 	el.setAttribute('data-blocked', 0);
-	alert(el.getAttribute('data-blocked'));
+	console.log(el.getAttribute('data-blocked'));
 
 }
 
