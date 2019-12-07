@@ -73,12 +73,13 @@ $(window).on("load", function() {
       $(overlay).removeClass('open');
       var section = parseInt($(this).attr('href').replace('#song-',''));
       if($(this).attr('href') != 'cover'){
-        section = section + 1;
+        section = section;
         currentSongNum = section - 1;
       } else {
-        section = 1;
-        currentSongNum = -1;
+        //section = 1;
+       // currentSongNum = section-1;
       }
+
       
       location.replace("#" + section);
       //fullpage_api.moveTo(section,0);
@@ -87,14 +88,11 @@ $(window).on("load", function() {
 
 
     //SCROLL
-    // Scroll
-
 	var lastScrollTop = 0;
 	var allSongs = document.getElementsByClassName("js-song");
 	var currentLyric;
 	var lastLyric = false;
 	var listenToWheel = true;
-
 
 	var lyricsInSong = allSongs[currentSongNum].getElementsByClassName("js-lyric");
 	var thisLyricNum;
@@ -141,8 +139,6 @@ $(window).on("load", function() {
 	  	listenToWheel =true;
 	  	allowScroll();
 	  }
-
-	  //alert(direct);
 
 	  console.log('scroll event:' + ts);
 
@@ -269,6 +265,12 @@ function songChanged(nextSong) {
     showHideLyrics(thisLyric, prevLyric);
     allSongs[currentSongNum].setAttribute('data-lyricnum',0);
     lyricsInSong = allSongs[currentSongNum].getElementsByClassName("js-lyric");
+    console.log(lyricsInSong);
+    for(var i = 1; i < lyricsInSong.length; i++)
+	{
+	    lyricsInSong[i].classList.add('d-none');
+	}
+		lyricsInSong[0].classList.remove('d-none');
 
   /*if(currentSongNum >= 0 && allSongs[currentSongNum]){
     thisLyric = lyricsInSong[0];
