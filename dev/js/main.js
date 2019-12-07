@@ -154,7 +154,7 @@ $(window).on("load", function() {
 	    checkEndSong(direction);
 	    setTimeout(function(){
 	      listenToWheel = true;
-	    }, 400);
+	    }, 100);
 	  }
 
 	  //lastScrollTop = ts <= 0 ? 0 : ts; // For Mobile or negative scrolling
