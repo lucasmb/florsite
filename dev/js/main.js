@@ -105,9 +105,16 @@ $(window).on("load", function() {
 	$('.js-song').on('touchstart', touchHandlerStart);
 	$('.js-song').on('touchend', touchHandlerEnd);
 
-	$('.js-song').on('scroll wheel', function (e) {
+	//window.addEventListener('scroll', _.throttle(handleMove, 1000, { leading: true, trailing: true}));
 
-	handleMove(e);
+	 $('.js-song').on('scroll wheel', _.throttle(function(e){
+    	handleMove(e);
+  	}, 900));
+
+	//$('.js-song').on('scroll wheel', _.throttle(handleMove(e), 1000, { leading: true, trailing: true}));
+
+	//$('.js-song').on('scroll wheel', function (e) {
+
 		/*
   	  if(parseInt(location.hash.replace('#', '').split('/')[0]) == 14 ){
 	  	listenToWheel =true;
@@ -132,7 +139,7 @@ $(window).on("load", function() {
 	  lastScrollTop = ts <= 0 ? 0 : ts; // For Mobile or negative scrolling
 		*/
 
-	});
+	//});
 
 	function handleMove(e, direct){
 	  if(parseInt(location.hash.replace('#', '').split('/')[0]) == 14 ){
